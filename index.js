@@ -1,13 +1,23 @@
 const express = require('express');
 const cors = require("cors");
-
+require('dotenv').config()
 const routes = require("./routes");
 
+// Get env config/defaults
+const {ROOT_PATH, SERVER_PORT} = process.env;
+
+const port = SERVER_PORT || 8080;
+const rootPath = ROOT_PATH || "/";
+
+// Init server
 const app = express();
-app.use(cors({ origin: true, credentials: true }));
+
+// Use JSON 
 app.use(express.json());
 
-app.use("/", function (req, res, next) {
+// Setup CORS
+app.use(cors({ origin: true, credentials: true }));
+app.use(rootPath, (req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Credentials', 'true');
     res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
@@ -20,10 +30,11 @@ app.use("/", function (req, res, next) {
     }
 });
 
-app.use("/", routes);
+// Setup routes
+app.use(rootPath, routes);
 
-const port = process.env.PORT || 8080;
-
+// Start listening
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
+    console.log(`API root path: ${rootPath}`);
 });

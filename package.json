@@ -17,8 +17,11 @@
   "dependencies": {
     "body-parser": "^1.20.3",
     "cors": "^2.8.5",
+    "country-region-data": "^3.0.0",
+    "dotenv": "^16.4.5",
     "express": "^4.21.1",
     "express-validator": "^7.2.0",
-    "fast-geoip": "^1.1.88"
+    "fast-geoip": "^1.1.88",
+    "transliteration": "^2.3.5"
   }
 }
