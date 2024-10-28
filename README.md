@@ -1,6 +1,6 @@
 # GeoIP API
 
-A simple GeoIP API server witten in Node.js
+A simple GeoIP API server written in Node.js
 
 ## Setup
 
