@@ -41,3 +41,17 @@ npm run dev
 npm run start 
 # Runs: node index.js
 ```
+
+## Update fast-geoip Database
+
+### Environment Variables
+
+|Name|Description|
+|---|---|
+|`MAXMIND_ACCOUNT_ID`|Your 6-digit MaxMind Account ID. (found under License Keys ) |
+|`MAXMIND_LICENSE_KEY`|Your MaxMind license key. |
+
+```bash
+pip install -r requirements.txt
+python updatedb.py
+```
